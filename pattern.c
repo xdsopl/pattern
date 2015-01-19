@@ -101,9 +101,10 @@ int main()
 	SDL_Init(SDL_INIT_VIDEO);
 	const SDL_VideoInfo *const info = SDL_GetVideoInfo();
 	SDL_Surface *surface = SDL_SetVideoMode(info->current_w, info->current_h, 0,
-		SDL_SWSURFACE|SDL_NOFRAME|SDL_FULLSCREEN);
+		SDL_SWSURFACE|SDL_NOFRAME);
 	if (!surface)
 		return 1;
+	fprintf(stderr, "w=%d, h=%d\n", surface->w, surface->h);
 	SDL_WM_SetCaption("Hmmmm, Pattern", "pattern");
 	SDL_ShowCursor(0);
 	draw(surface);
